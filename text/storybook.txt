@@ -1,0 +1,7 @@
+storybook導入方法
+
+$npx storybook init
+
+.storybook/main.jsのstoriesを変更
+
+$yarn storybook

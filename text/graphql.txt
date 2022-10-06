@@ -1,0 +1,50 @@
+grapqhql導入
+$yarn add graphql
+
+<クライアント>
+
+①apollo/clientを作り、ルートコンポネントをApolloProviderでラップする
+apollo.ts
+
+②graphql code generatorのセットアップ
+
+パッケージをインストール
+$yarn add -D @graphql-codegen/cli @graphql-codegen/typescript @graphql-codegen/typescript-operations @graphql-codegen/typescript-react-apollo
+
+codegen.ymlを作成
+
+コンポネントからgraphql(=apollo clietn)からデータをフェッチするときは
+codegenで生成されたカスタムフックを使う
+
+<サーバー>
+
+パッケージをインストール
+$yarn add micro apollo-server-micro
+$yarn add @graphql-tools/load-files @graphql-tools/merge @graphql-tools/schema @graphql-tools/graphql-file-loader
+
+①schema,resolver,queryなどを作る
+最終的にschemaを作り、new ApolloServer({schema, resolvers})の引数に渡す
+
+①api routes 
+pages/api/graphql.ts作成
+
+// Queryのクエリ名①はスキーマの方のQueryのクエリ名②と一致していないとダメ
+スキーマ
+schema {
+    query: Query
+}
+
+type Query {
+    phones: [Phone]   ①ここでいうphones
+}
+
+type Phone {
+    type: String
+}
+
+クエリ
+query phone {  
+    phones {    ②ここでいうphones
+        type
+    }
+}

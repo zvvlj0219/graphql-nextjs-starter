@@ -1,0 +1,11 @@
+schema {
+    query: Query
+}
+
+type Query {
+    phones: [Phone]
+}
+
+type Phone {
+    type: String
+}
