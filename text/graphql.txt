@@ -29,6 +29,7 @@ $yarn add @graphql-tools/load-files @graphql-tools/merge @graphql-tools/schema @
 pages/api/graphql.ts作成
 
 // Queryのクエリ名①はスキーマの方のQueryのクエリ名②と一致していないとダメ
+// なおかつresolversのQueryの③メソッド名と一致しなければならない
 スキーマ
 schema {
     query: Query
@@ -47,4 +48,9 @@ query phone {
     phones {    ②ここでいうphones
         type
     }
+}
+
+リゾルバ
+const Query = {
+    phones: () => phones   ③phones
 }
