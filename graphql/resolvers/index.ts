@@ -5,10 +5,12 @@ import { mergeResolvers } from '@graphql-tools/merge'
 // import resolvers
 import bookResolvers from './book.resolvers'
 import phoneResolvers from './phone.resolvers'
+import todoResolvers from './todo.resolvers'
 
 const resolvers = [
     bookResolvers,
-    phoneResolvers
+    phoneResolvers,
+    todoResolvers
 ]
 export default mergeResolvers(resolvers)
 

@@ -7,3 +7,9 @@ generates:
       - "typescript"
       - "typescript-operations"
       - "typescript-react-apollo"
+  graphql/generated/resolvers.ts:
+    plugins:
+      - "typescript"
+      - "typescript-resolvers"
+    config:
+      useIndexSignature: true

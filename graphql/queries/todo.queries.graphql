@@ -1,0 +1,27 @@
+query getTodos {
+    getTodos {
+        todo
+        _id
+    }
+}
+
+mutation addTodo($newTodo: String!) {
+    addTodo(newTodo: $newTodo) {
+        todo
+        _id
+    }
+}
+
+mutation editTodo($_id: String!, $newTodo: String!) {
+    editTodo(_id: $_id, newTodo: $newTodo) {
+        todo
+        _id
+    }
+}
+
+mutation deleteTodo($_id: String!) {
+    deleteTodo(_id: $_id) {
+        todo
+        _id
+    }
+}
